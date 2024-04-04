@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 
 public class Controlador extends JFrame{
@@ -21,6 +23,8 @@ public class Controlador extends JFrame{
         modelo.addObserver(vista);
         modelo.addObserver(vista2);
 
+
+
         add(vista);
 
         vista.setPreferredSize(new Dimension(modelo.CANVAS_ANCHO, modelo.CANVAS_ALTO));
@@ -29,6 +33,7 @@ public class Controlador extends JFrame{
         pack();
         setVisible(true);
         vista.requestFocus();
+
 
 
         btnIzq.addActionListener(new ActionListener() {
@@ -44,6 +49,18 @@ public class Controlador extends JFrame{
         });
         btnPanel.add(btnDer);
 
+        vista.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent evt) {
+                switch (evt.getKeyCode()) {
+                    case KeyEvent.VK_LEFT:
+                        moverIzquierda();
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        moverDerecha();
+                        break;
+                }
+            }
+        });
 
     }
 

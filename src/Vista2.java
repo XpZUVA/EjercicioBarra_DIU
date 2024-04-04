@@ -15,6 +15,6 @@ public class Vista2 extends JPanel implements Observer{
     }
     @Override
     public void update(Observable o, Object arg) {
-        label = new JLabel("Posición de la línea: (" + modelo.getX1() + "," + modelo.getY1() + "),(" + modelo.getX2() + "," + modelo.getY2() + ")");
+        label.setText("Posición de la línea: (" + modelo.getX1() + "," + modelo.getY1() + "),(" + modelo.getX2() + "," + modelo.getY2() + ")");
     }
 }

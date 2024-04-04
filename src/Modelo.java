@@ -32,12 +32,14 @@ public class Modelo extends Observable{
     public void moverIzquierda() {
         x1 -= 10;
         x2 -= 10;
-        notifyObservers(); // Notificar a los observadores sobre el cambio
+        setChanged();
+        notifyObservers();
     }
 
     public void moverDerecha() {
         x1 += 10;
         x2 += 10;
-        notifyObservers(); // Notificar a los observadores sobre el cambio
+        setChanged();
+        notifyObservers();
     }
 }
